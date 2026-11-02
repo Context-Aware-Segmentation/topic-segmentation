@@ -1,0 +1,284 @@
+{
+  "raw_dataset": "data/mind/full",
+  "sentence_file": "data/mind/full/news_sentences.jsonl",
+  "teacher_predictions": "data/mind/full/news_seg_predictions.jsonl",
+  "filtered_predictions": "data/mind/full/news_seg_predictions_3to12seg.jsonl",
+  "prepared_root": "data/mind/prepared",
+  "teacher_checkpoint": "runs/news_finetuning/modernbert_c4_1024_ts",
+  "initialization": "runs/boundary_pretraining/modernbert_c4",
+  "selection": {
+    "minimum_sentences": 10,
+    "maximum_sentences": 150,
+    "minimum_sentence_characters": 10,
+    "minimum_segments": 3,
+    "maximum_segments": 12,
+    "seed": 42,
+    "validation_ratio": 0.05,
+    "subset_sizes": {"2k": 2000, "5k": 5000, "10k": 10000, "25k": 25615}
+  },
+  "adaptation": {
+    "max_sequence_length": 1024,
+    "epochs": 1,
+    "matched_steps": 4095,
+    "learning_rate": 1e-05,
+    "per_device_batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "seed": 42,
+    "evaluation_points": 5
+  },
+  "news_finetuning": {
+    "max_sequence_length": 1024,
+    "epochs": 10,
+    "learning_rate": 2e-05,
+    "per_device_batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "seed": 42,
+    "evaluation_points": 10
+  },
+  "objectives": {
+    "ts": {
+      "do_da_ts": false,
+      "do_tssp": false,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 0.0
+    },
+    "ts_da": {
+      "do_da_ts": true,
+      "do_tssp": false,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 0.0
+    },
+    "full": {
+      "do_da_ts": true,
+      "do_tssp": true,
+      "cl_loss_weight": 0.5,
+      "tssp_loss_weight": 1.0
+    }
+  },
+  "runs": {
+    "mind_10k_full": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "full",
+      "record": "runs/mind_adaptation/mind_10k_full"
+    },
+    "mind_10k_full_matched": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "full",
+      "matched_steps": true,
+      "record": "runs/mind_adaptation/mind_10k_full_matched"
+    },
+    "mind_10k_ts_da": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "ts_da",
+      "record": "runs/mind_adaptation/mind_10k_ts_da"
+    },
+    "mind_10k_ts_da_matched": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "ts_da",
+      "matched_steps": true,
+      "record": "runs/mind_adaptation/mind_10k_ts_da_matched"
+    },
+    "mind_10k_ts": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "ts",
+      "record": "runs/mind_adaptation/mind_10k_ts"
+    },
+    "mind_10k_ts_matched": {
+      "stage": "adaptation",
+      "size": "10k",
+      "objective": "ts",
+      "matched_steps": true,
+      "record": "runs/mind_adaptation/mind_10k_ts_matched"
+    },
+    "mind_25k_cssl": {
+      "stage": "adaptation",
+      "size": "25k",
+      "objective": "full",
+      "length": 512,
+      "record": "runs/mind_adaptation/mind_25k_cssl"
+    },
+    "mind_25k_full": {
+      "stage": "adaptation",
+      "size": "25k",
+      "objective": "full",
+      "record": "runs/mind_adaptation/mind_25k_full"
+    },
+    "mind_25k_ts_da": {
+      "stage": "adaptation",
+      "size": "25k",
+      "objective": "ts_da",
+      "record": "runs/mind_adaptation/mind_25k_ts_da"
+    },
+    "mind_25k_ts": {
+      "stage": "adaptation",
+      "size": "25k",
+      "objective": "ts",
+      "record": "runs/mind_adaptation/mind_25k_ts"
+    },
+    "mind_10k_full_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_full",
+      "record": "runs/mind_adaptation/mind_10k_full_news_ts"
+    },
+    "mind_10k_full_matched_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_full_matched",
+      "record": "runs/mind_adaptation/mind_10k_full_matched_news_ts"
+    },
+    "mind_10k_ts_da_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_ts_da",
+      "record": "runs/mind_adaptation/mind_10k_ts_da_news_ts"
+    },
+    "mind_10k_ts_da_matched_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_ts_da_matched",
+      "record": "runs/mind_adaptation/mind_10k_ts_da_matched_news_ts"
+    },
+    "mind_10k_ts_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_ts",
+      "record": "runs/mind_adaptation/mind_10k_ts_news_ts"
+    },
+    "mind_10k_ts_matched_news_ts": {
+      "stage": "news",
+      "size": "10k",
+      "objective": "ts",
+      "initialization": "mind_10k_ts_matched",
+      "record": "runs/mind_adaptation/mind_10k_ts_matched_news_ts"
+    },
+    "mind_25k_cssl_news_ts": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts",
+      "initialization": "mind_25k_cssl",
+      "record": "runs/mind_adaptation/mind_25k_cssl_news_ts"
+    },
+    "mind_25k_full_news_full": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "full",
+      "initialization": "mind_25k_full",
+      "batch_size": 1,
+      "accumulation": 8,
+      "record": "runs/mind_adaptation/mind_25k_full_news_full"
+    },
+    "mind_25k_full_news_ts": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts",
+      "initialization": "mind_25k_full",
+      "record": "runs/mind_adaptation/mind_25k_full_news_ts"
+    },
+    "mind_25k_full_news_ts_da": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts_da",
+      "initialization": "mind_25k_full",
+      "batch_size": 1,
+      "accumulation": 8,
+      "record": "runs/mind_adaptation/mind_25k_full_news_ts_da"
+    },
+    "mind_25k_ts_da_news_full": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "full",
+      "initialization": "mind_25k_ts_da",
+      "batch_size": 1,
+      "accumulation": 8,
+      "record": "runs/mind_adaptation/mind_25k_ts_da_news_full"
+    },
+    "mind_25k_ts_da_news_ts": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts",
+      "initialization": "mind_25k_ts_da",
+      "record": "runs/mind_adaptation/mind_25k_ts_da_news_ts"
+    },
+    "mind_25k_ts_da_news_ts_da": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts_da",
+      "initialization": "mind_25k_ts_da",
+      "batch_size": 1,
+      "accumulation": 8,
+      "record": "runs/mind_adaptation/mind_25k_ts_da_news_ts_da"
+    },
+    "mind_25k_ts_news_full": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "full",
+      "initialization": "mind_25k_ts",
+      "record": "runs/mind_adaptation/mind_25k_ts_news_full"
+    },
+    "mind_25k_ts_news_ts": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts",
+      "initialization": "mind_25k_ts",
+      "record": "runs/mind_adaptation/mind_25k_ts_news_ts"
+    },
+    "mind_25k_ts_news_ts_da": {
+      "stage": "news",
+      "size": "25k",
+      "objective": "ts_da",
+      "initialization": "mind_25k_ts",
+      "record": "runs/mind_adaptation/mind_25k_ts_news_ts_da"
+    }
+  },
+  "experiments": {
+    "scale": [
+      "mind_10k_ts_da",
+      "mind_10k_full",
+      "mind_25k_ts_da",
+      "mind_25k_full"
+    ],
+    "final": [
+      "mind_10k_ts_news_ts",
+      "mind_10k_ts_matched_news_ts",
+      "mind_10k_ts_da_news_ts",
+      "mind_10k_ts_da_matched_news_ts",
+      "mind_10k_full_news_ts",
+      "mind_10k_full_matched_news_ts",
+      "mind_25k_ts_news_ts",
+      "mind_25k_ts_da_news_ts",
+      "mind_25k_full_news_ts"
+    ],
+    "objective_matrix": [
+      "mind_25k_ts_news_ts",
+      "mind_25k_ts_news_ts_da",
+      "mind_25k_ts_news_full",
+      "mind_25k_ts_da_news_ts",
+      "mind_25k_ts_da_news_ts_da",
+      "mind_25k_ts_da_news_full",
+      "mind_25k_full_news_ts",
+      "mind_25k_full_news_ts_da",
+      "mind_25k_full_news_full"
+    ],
+    "matched_steps": [
+      "mind_10k_full_news_ts",
+      "mind_10k_full_matched_news_ts",
+      "mind_25k_full_news_ts",
+      "mind_10k_ts_matched_news_ts",
+      "mind_10k_ts_da_matched_news_ts"
+    ],
+    "clinical_initialization": [
+      "mind_25k_cssl_news_ts"
+    ]
+  }
+}

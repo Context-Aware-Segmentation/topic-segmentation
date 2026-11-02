@@ -1,0 +1,244 @@
+{
+  "input": "data/news/test.jsonl",
+  "window": 1024,
+  "baselines": {
+    "semantic": "checkpoints/baselines/chonkie/semantic-potion-base-32m",
+    "neural": "checkpoints/baselines/chonkie/neural-modernbert-base"
+  },
+  "experiments": {
+    "strides": [
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 256,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 768,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 1024,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 256,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 768,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 1024,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 256,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 768,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 1024,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 256,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 768,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/news_finetuning/modernbert_c4_1024_ts",
+        "stride": 1024,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 256,
+        "protect": false,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 768,
+        "protect": false,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 1024,
+        "protect": false,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 256,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 768,
+        "protect": false,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 1024,
+        "protect": false,
+        "batch_size": 32
+      }
+    ],
+    "stage_matrix": [
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_da_news_full",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_da_news_ts_da",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_da_news_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_news_full",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_news_ts_da",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_ts_news_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_full",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts_da",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 512,
+        "protect": false,
+        "batch_size": 8
+      }
+    ],
+    "matched_steps": [
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_full_matched_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_25k_full_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 4
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_ts_matched_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 32
+      },
+      {
+        "model": "runs/mind_adaptation/mind_10k_ts_da_matched_news_ts",
+        "stride": 512,
+        "protect": true,
+        "batch_size": 32
+      }
+    ]
+  }
+}

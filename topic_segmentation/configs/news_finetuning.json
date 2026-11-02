@@ -1,0 +1,275 @@
+{
+  "training": {
+    "epochs": 10,
+    "learning_rate": 2e-05,
+    "per_device_batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "seed": 42,
+    "evaluation_points": 10
+  },
+  "objectives": {
+    "ts": {
+      "do_da_ts": false,
+      "do_tssp": false,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 0.0,
+      "cl_temp": 0.5
+    },
+    "ts_da": {
+      "do_da_ts": true,
+      "do_tssp": false,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 0.0,
+      "cl_temp": 0.5
+    },
+    "cssl": {
+      "do_da_ts": false,
+      "do_tssp": false,
+      "cl_loss_weight": 0.5,
+      "tssp_loss_weight": 0.0,
+      "cl_temp": 0.1
+    },
+    "cssl_da": {
+      "do_da_ts": true,
+      "do_tssp": false,
+      "cl_loss_weight": 0.5,
+      "tssp_loss_weight": 0.0,
+      "cl_temp": 0.1
+    },
+    "tssp": {
+      "do_da_ts": false,
+      "do_tssp": true,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 1.0,
+      "cl_temp": 0.1
+    },
+    "tssp_da": {
+      "do_da_ts": true,
+      "do_tssp": true,
+      "cl_loss_weight": 0.0,
+      "tssp_loss_weight": 1.0,
+      "cl_temp": 0.1
+    },
+    "full_noda": {
+      "do_da_ts": false,
+      "do_tssp": true,
+      "cl_loss_weight": 0.5,
+      "tssp_loss_weight": 1.0,
+      "cl_temp": 0.1
+    },
+    "full": {
+      "do_da_ts": true,
+      "do_tssp": true,
+      "cl_loss_weight": 0.5,
+      "tssp_loss_weight": 1.0,
+      "cl_temp": 0.1
+    }
+  },
+  "backbones": {
+    "bert": "checkpoints/bert_base",
+    "roberta": "checkpoints/roberta_base",
+    "longformer": "checkpoints/longformer_base",
+    "modernbert": "checkpoints/modernbert_base",
+    "modernbert_c4": "runs/boundary_pretraining/modernbert_c4"
+  },
+  "runs": {
+    "bert_512_ts_da": {
+      "backbone": "bert",
+      "length": 512,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "bert_512_ts": {
+      "backbone": "bert",
+      "length": 512,
+      "data": "news",
+      "objective": "ts"
+    },
+    "roberta_512_ts_da": {
+      "backbone": "roberta",
+      "length": 512,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "roberta_512_ts": {
+      "backbone": "roberta",
+      "length": 512,
+      "data": "news",
+      "objective": "ts"
+    },
+    "longformer_512_ts_da": {
+      "backbone": "longformer",
+      "length": 512,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "longformer_512_ts": {
+      "backbone": "longformer",
+      "length": 512,
+      "data": "news",
+      "objective": "ts"
+    },
+    "longformer_1024_ts_da": {
+      "backbone": "longformer",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "longformer_1024_ts": {
+      "backbone": "longformer",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts"
+    },
+    "modernbert_512_ts_da": {
+      "backbone": "modernbert",
+      "length": 512,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "modernbert_512_ts": {
+      "backbone": "modernbert",
+      "length": 512,
+      "data": "news",
+      "objective": "ts"
+    },
+    "modernbert_1024_ts_da": {
+      "backbone": "modernbert",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "modernbert_1024_ts": {
+      "backbone": "modernbert",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts"
+    },
+    "modernbert_c4_512_ts_da": {
+      "backbone": "modernbert_c4",
+      "length": 512,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "modernbert_c4_512_ts": {
+      "backbone": "modernbert_c4",
+      "length": 512,
+      "data": "news",
+      "objective": "ts"
+    },
+    "modernbert_c4_1024_ts_da": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts_da"
+    },
+    "modernbert_c4_1024_ts": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "ts"
+    },
+    "modernbert_c4_1024_cssl_da": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "cssl_da"
+    },
+    "modernbert_c4_1024_cssl": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "cssl"
+    },
+    "modernbert_c4_1024_tssp_da": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "tssp_da"
+    },
+    "modernbert_c4_1024_tssp": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "tssp"
+    },
+    "modernbert_c4_1024_full": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "full"
+    },
+    "modernbert_c4_1024_full_noda": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news",
+      "objective": "full_noda"
+    },
+    "modernbert_c4_512_ts_sentences": {
+      "backbone": "modernbert_c4",
+      "length": 512,
+      "data": "news_sent",
+      "objective": "ts"
+    },
+    "modernbert_c4_1024_ts_sentences": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news_sent",
+      "objective": "ts"
+    },
+    "modernbert_c4_1024_full_sentences": {
+      "backbone": "modernbert_c4",
+      "length": 1024,
+      "data": "news_sent",
+      "objective": "full",
+      "overrides": {
+        "cl_temp": 0.5
+      }
+    }
+  },
+  "experiments": {
+    "backbones": [
+      "bert_512_ts",
+      "bert_512_ts_da",
+      "roberta_512_ts",
+      "roberta_512_ts_da",
+      "longformer_512_ts",
+      "longformer_512_ts_da",
+      "longformer_1024_ts",
+      "longformer_1024_ts_da",
+      "modernbert_512_ts",
+      "modernbert_512_ts_da",
+      "modernbert_1024_ts",
+      "modernbert_1024_ts_da"
+    ],
+    "boundary_pretraining": [
+      "modernbert_512_ts",
+      "modernbert_512_ts_da",
+      "modernbert_1024_ts",
+      "modernbert_1024_ts_da",
+      "modernbert_c4_512_ts",
+      "modernbert_c4_512_ts_da",
+      "modernbert_c4_1024_ts",
+      "modernbert_c4_1024_ts_da"
+    ],
+    "granularity": [
+      "modernbert_c4_512_ts",
+      "modernbert_c4_1024_ts",
+      "modernbert_c4_512_ts_sentences",
+      "modernbert_c4_1024_ts_sentences"
+    ],
+    "objectives": [
+      "modernbert_c4_1024_ts",
+      "modernbert_c4_1024_ts_da",
+      "modernbert_c4_1024_cssl",
+      "modernbert_c4_1024_cssl_da",
+      "modernbert_c4_1024_tssp",
+      "modernbert_c4_1024_tssp_da",
+      "modernbert_c4_1024_full_noda",
+      "modernbert_c4_1024_full"
+    ],
+    "clinical_initialization": [
+      "modernbert_c4_1024_full_sentences"
+    ]
+  }
+}

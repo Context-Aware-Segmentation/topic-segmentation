@@ -1,0 +1,10 @@
+{
+  "model": "../topic_segmentation/runs/mind_adaptation/mind_25k_full_news_ts",
+  "window": 1024,
+  "stride": 512,
+  "protect_window_end": true,
+  "batch_size": 8,
+  "min_words": 128,
+  "source": "../topic_segmentation/data/mind/full/news.csv",
+  "punkt": "../topic_segmentation/data/resources/nltk/tokenizers/punkt/english.pickle"
+}

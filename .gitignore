@@ -1,0 +1,40 @@
+# Python build and test outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+/.wrangler/
+
+# Tests stay local
+/topic_segmentation/tests/regression/
+/knowledge_graph/tests/
+/recommendation/tests/
+
+# Data, checkpoints, runs, and caches of each part
+/topic_segmentation/cache/
+/topic_segmentation/checkpoints/
+/topic_segmentation/data/*
+!/topic_segmentation/data/.gitkeep
+!/topic_segmentation/data/sample_input.jsonl
+/topic_segmentation/runs/*
+!/topic_segmentation/runs/.gitkeep
+/knowledge_graph/checkpoints/
+/knowledge_graph/data/*
+!/knowledge_graph/data/.gitkeep
+/knowledge_graph/runs/*
+!/knowledge_graph/runs/.gitkeep
+/recommendation/checkpoints/
+/recommendation/data/*
+!/recommendation/data/.gitkeep
+/recommendation/runs/*
+!/recommendation/runs/.gitkeep
+
+# Sensitive: MIMIC data, MIMIC-trained models, and outputs derived from them (never commit, even if the asset
+# directories above are opened up later)
+/topic_segmentation/data/mimic/
+/topic_segmentation/cache/mimic/
+/topic_segmentation/runs/clinical_transfer/
+/knowledge_graph/checkpoints/medcat/
+/knowledge_graph/runs/clinical/medcat/best_cdb.dat
+/knowledge_graph/data/synthetic100/generation/

@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+testpaths = ["topic_segmentation/tests", "knowledge_graph/tests", "tests"]
+python_files = ["test_*.py"]
+markers = [
+  "mimic: reads local MIMIC outputs; slow because the original scorers run over 1,000 notes",
+]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["knowledge_graph/src/knowledge_graph/clinical/vendor"]  # vendored PhenoBERT and fastNLP

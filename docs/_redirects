@@ -1,0 +1,10 @@
+/SETUP /topic-segmentation/SETUP 301
+/SETUP.html /topic-segmentation/SETUP 301
+/BUILD /topic-segmentation/BUILD 301
+/BUILD.html /topic-segmentation/BUILD 301
+/api /topic-segmentation/api/ 301
+/api/* /topic-segmentation/api/:splat 301
+/assets/* /topic-segmentation/assets/:splat 301
+/search/* /topic-segmentation/search/:splat 301
+/figures/* /topic-segmentation/figures/:splat 301
+/data/sample_input.jsonl /topic-segmentation/data/sample_input.jsonl 301

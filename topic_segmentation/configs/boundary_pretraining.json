@@ -1,0 +1,20 @@
+{
+  "prepared_dataset": "data/c4/tokenized_modernbert",
+  "base_model": "checkpoints/modernbert_base",
+  "max_sequence_length": 1024,
+  "minimum_paragraph_words": 5,
+  "minimum_paragraph_count": 2,
+  "minimum_average_sentences_per_paragraph": 1.0,
+  "training": {
+    "seed": 42,
+    "epochs": 1,
+    "per_device_batch_size": 32,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "scheduler": "cosine",
+    "precision": "bfloat16",
+    "attention_implementation": "flash_attention_2",
+    "save_steps": 2000
+  }
+}

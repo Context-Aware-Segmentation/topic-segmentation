@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "topic-segmentation"
+version = "0.1.0"
+description = "News topic segmentation and its transfer to clinical notes"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "torch==2.6.0+cu124",
+  "transformers==4.48.3",
+  "tokenizers==0.21.4",
+  "datasets==2.20.0",
+  "accelerate==1.13.0",
+  "numpy==2.2.6",
+  "scipy==1.15.3",
+  "scikit-learn==1.7.2",
+  "pandas==2.3.3",
+  "segeval==2.0.11",
+  "fsspec==2023.9.2",
+  "huggingface-hub==0.36.2",
+  "nltk==3.8.1",
+  "protobuf==3.20.0",
+  "safetensors==0.7.0",
+  "pyarrow==24.0.0",
+  "beautifulsoup4==4.15.0",
+  "ftfy==6.3.1",
+  "playwright==1.62.0",
+  "chonkie==1.6.8",
+  "model2vec==0.8.2",
+  "flash-attn==2.7.4.post1",
+  "pytest==8.4.2",
+  "setuptools==84.2.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.extra-build-dependencies]
+flash-attn = [{ requirement = "torch", match-runtime = true }]
+
+[tool.uv.extra-build-variables]
+flash-attn = { FLASH_ATTENTION_SKIP_CUDA_BUILD = "TRUE" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "mimic: reads local MIMIC outputs; slow because the original scorers run over 1,000 notes",
+]
+
+[tool.ruff]
+line-length = 120

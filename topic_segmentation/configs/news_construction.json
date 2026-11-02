@@ -1,0 +1,16 @@
+{
+  "source_root": "data/news/raw",
+  "run_root": "runs/news_construction",
+  "steps": [
+    "build_subheadings",
+    "parse_bbc",
+    "parse_es",
+    "parse_guardian",
+    "parse_inews",
+    "parse_ind",
+    "parse_sky_news",
+    "gen_dataset",
+    "prepare_splits"
+  ],
+  "html_workers": 8
+}

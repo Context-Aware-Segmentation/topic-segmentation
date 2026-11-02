@@ -1,0 +1,8 @@
+{
+  "mind": "data/mind/large",
+  "segmented": "data/mind/large/summaries/summary_full_catalog/segmented.jsonl",
+  "sections": "data/mind/large/summaries/section_summary_40_50_full/outputs.jsonl",
+  "articles": "data/mind/large/summaries/article_summary_250_350",
+  "tokenizer": "checkpoints/bert_base",
+  "selection": "data/mind/large/filtered_by_day/inputs/title_section_summary_512/selection.jsonl"
+}

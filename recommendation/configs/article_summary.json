@@ -1,0 +1,12 @@
+{
+  "dataset": "data/mind/large/filtered_by_day",
+  "source": "data/mind/large/summaries/summary_full_catalog/segmented.jsonl",
+  "prompt": "configs/prompts/article_summary_250_350.txt",
+  "model": "checkpoints/summarizers/Qwen3-4B-Instruct-2507",
+  "gpu_ids": [
+    0,
+    1
+  ],
+  "max_new_tokens": 768,
+  "recovery_max_new_tokens": 3072
+}

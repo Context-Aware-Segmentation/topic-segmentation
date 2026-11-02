@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "discharge": {
+      "block": "data/mimic/eval_sets/random_seed_42/inference_inputs/mimic_discharge_block.jsonl",
+      "subheading": "data/mimic/eval_sets/random_seed_42/inference_inputs/mimic_discharge_subheading.jsonl"
+    }
+  },
+  "models": {
+    "news_pretrain": {
+      "model_type": "modernbert_ts",
+      "checkpoint": "runs/mind_adaptation/mind_25k_cssl_news_ts"
+    },
+    "news_ft": {
+      "model_type": "modernbert_ts",
+      "checkpoint": "runs/news_finetuning/modernbert_c4_1024_full_sentences"
+    },
+    "chonkie_semantic": {
+      "model_type": "chonkie_semantic",
+      "checkpoint": "checkpoints/baselines/chonkie/semantic-potion-base-32m"
+    },
+    "chonkie_neural": {
+      "model_type": "chonkie_neural",
+      "checkpoint": "checkpoints/baselines/chonkie/neural-modernbert-base"
+    }
+  },
+  "window": 1024,
+  "stride": 512,
+  "batch_size": 32,
+  "protect_window_end": false,
+  "output": "runs/clinical_transfer/zero_shot/reproductions"
+}

@@ -1,0 +1,29 @@
+{
+  "bert": "checkpoints/bert_base",
+  "bert_layers": 8,
+  "trainable_bert_layers": [
+    6,
+    7
+  ],
+  "word_embedding_dim": 768,
+  "num_attention_heads": 20,
+  "news_query_vector_dim": 200,
+  "user_query_vector_dim": 200,
+  "news_dim": 64,
+  "drop_rate": 0.2,
+  "user_log_length": 50,
+  "npratio": 4,
+  "batch_size": 16,
+  "learning_rate": 1e-05,
+  "epochs": 10,
+  "seed": 42,
+  "evaluation_batch_size": 128,
+  "data": "data/mind/large/filtered_by_day",
+  "inputs": [
+    "title_abstract_512",
+    "title_section_summary_512",
+    "title_article_summary_512"
+  ],
+  "micro_batch_size": 2,
+  "news_encoding_batch_size": 8
+}

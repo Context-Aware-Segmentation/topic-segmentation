@@ -1,0 +1,22 @@
+{
+  "data": {
+    "splits": "data/mimic/finetune_sets/discharge_bhc_seed42_n5000/splits_valid1000_seed42",
+    "large_splits": "data/mimic/finetune_sets/discharge_bhc_seed42_n101000/splits_valid1000_seed42",
+    "test_inputs": "data/mimic/eval_sets/random_seed_42/inference_inputs"
+  },
+  "levels": ["block", "subheading"],
+  "sizes": [8, 16, 32, 50, 100, 300, 1000, 4000, 10000, 30000, 100000],
+  "seed": 42,
+  "epochs": 5,
+  "max_seq_length": 1024,
+  "learning_rate": 0.00002,
+  "train_batch_size": 4,
+  "eval_batch_size": 4,
+  "gradient_accumulation_steps": 2,
+  "output": "runs/clinical_transfer/scaling/reproductions",
+  "initializations": {
+    "base": "checkpoints/modernbert_base",
+    "news_pretrain": "runs/mind_adaptation/mind_25k_cssl_news_ts",
+    "news_ft": "runs/news_finetuning/modernbert_c4_1024_full_sentences"
+  }
+}
