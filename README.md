@@ -1,4 +1,4 @@
-# Structure-Aware News Topic Segmentation with Silver-Label Augmentation
+# Context-Aware Segmentation for Structured Understanding of Complex Documents
 
 Code for Yeyang Liu's master's thesis at the University of Zurich: news topic segmentation from editorial subheadings, clinical transfer, and applications to information extraction and recommendation.
 
